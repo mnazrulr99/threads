@@ -145,19 +145,19 @@ Korang fokus jual 💸 RM25/vid je.
 ```
 Soalan yang selalu orang tanya saya 👇🏻
 
-❓ Berapa lama siap?
-👉 [X] hari
-
-❓ Boleh revise?
-👉 Boleh, [X] kali
-
 ❓ Kena hantar apa?
 👉 Raw video + produk apa + gaya yang korang nak
 
 ❓ Video apa boleh?
 👉 Affiliate, review, iklan, cute, epic: semua boleh!
 
-Ada soalan lain? Komen je 💬
+❓ Panjang video?
+👉 RM25 untuk video bawah 1 minit
+
+❓ Ada pakej?
+👉 Ada! Lagi banyak video, lagi jimat 💸
+
+Soalan lain? DM je, kita borak terus 💬
 ```
 
 **#10 · Rab 18 Nov · 12:30 tgh · Topic: Content Creators · Jenis: Tips (nilai)**
@@ -225,3 +225,9 @@ Next, video korang pula? 😉
 2. **Balas semua komen dalam 1 jam pertama**, terutamanya komen "NAK", dan terus DM mereka.
 3. Pergi topic "Content Creators" / "affiliate", dan komen bermanfaat di 3–5 post orang lain (jangan spam iklan).
 4. Catat ❤️ 💬 🔁 setiap post dalam `content/tracker.md` supaya kita boleh bandingkan.
+
+---
+
+## Minggu 3 (23–29 Nov)
+
+Post teks tambahan p15–p21. Teks penuh ada dalam `content/posts.json`.

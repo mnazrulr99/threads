@@ -95,7 +95,15 @@ Kalau kau skip langkah ni, kau kena ulang Langkah 3 dan 4 setiap kira-kira 50 ha
 
 3. Tekan **Commit changes**. Workflow **"Semak posts.json"** akan jalan sendiri. Kalau ia ❌, maksudnya ada kesilapan format.
 
-### Post dengan video/gambar
-Threads API **tak boleh upload terus dari phone**. Video/gambar mesti ada di **link awam** (URL terus ke fail `.mp4` / `.jpg`), kemudian letak link tu dalam `video_url` atau `image_url`.
+### Post dengan video/gambar (guna Google Drive)
+Threads API tak terima fail dari phone. Server Meta akan **download sendiri** video dari satu link awam.
 
-Kalau takde link awam, cara paling senang: biarkan post tu tak berjalan secara automatik (`require_media: true` dengan `video_url` kosong), dan **post sendiri dari app Threads** pada hari tu.
+1. Upload video ke Google Drive. Format: **MP4/MOV**, maksimum **5 minit**, maksimum **1GB**.
+2. Pada **fail video** (bukan folder), tekan ⋮ → **Share** → **General access: Anyone with the link** → **Copy link**.
+3. Paste link tu dalam `video_url` post berkenaan. Contoh:
+   `"video_url": "https://drive.google.com/file/d/1AbCdEf.../view?usp=sharing"`
+4. Skrip akan tukar link Drive tu jadi link download terus secara automatik.
+5. Commit. Workflow **"Semak posts.json"** akan uji link tu dan tunjuk `link OK ✓` atau masalahnya.
+
+⚠️ **Link folder tak boleh guna.** Mesti link setiap fail video.
+⚠️ Kalau Google sekat download (contohnya video terlalu banyak kali didownload), post tu akan gagal dan direkod dalam log Actions. Kalau jadi, post sendiri dari app Threads.

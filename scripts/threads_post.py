@@ -69,6 +69,12 @@ def problems(post):
         out.append("perlu video/gambar tapi video_url/image_url kosong")
     if post.get("video_url") and post.get("image_url"):
         out.append("pilih satu sahaja: video_url atau image_url")
+    for key in ("video_url", "image_url"):
+        if post.get(key):
+            try:
+                direct_media_url(post[key])
+            except ValueError as e:
+                out.append(f"{key}: {e}")
     try:
         parse_time(post["scheduled_at"])
     except (KeyError, ValueError):
@@ -92,12 +98,46 @@ def api_call(method, path, params):
         raise RuntimeError(f"Threads API {e.code}: {body}") from None
 
 
+DRIVE_ID = re.compile(r"drive\.google\.com/(?:file/d/|open\?id=|uc\?(?:[^#]*&)?id=)([\w-]+)")
+
+
+def direct_media_url(url):
+    """Turn a Google Drive share link into a direct download link.
+
+    Drive's normal share link opens a web page, but the Threads API needs a
+    link straight to the .mp4/.jpg file. Folder links cannot be used.
+    """
+    if "drive.google.com/drive/folders" in url:
+        raise ValueError("ini link FOLDER Drive; perlu link FAIL video (Share → Copy link pada video itu)")
+    m = DRIVE_ID.search(url)
+    if m:
+        return f"https://drive.usercontent.google.com/download?id={m.group(1)}&export=download&confirm=t"
+    return url
+
+
+def check_media(url, kind):
+    """Make sure the link really serves a public video/image file."""
+    req = urllib.request.Request(url, headers={"Range": "bytes=0-1023", "User-Agent": "threads-autopost"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            ctype = resp.headers.get("Content-Type", "")
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"Link media tak boleh dibuka (HTTP {e.code}). Pastikan share 'Anyone with the link'.") from None
+    if not (ctype.startswith(kind + "/") or ctype.startswith("application/octet-stream")):
+        raise RuntimeError(f"Link bukan fail {kind} terus (Content-Type: {ctype or '?'}). "
+                           "Pastikan fail Drive di-share 'Anyone with the link'.")
+
+
 def publish(post, token, user_id):
     params = {"text": post["text"], "access_token": token}
     if post.get("video_url"):
-        params.update(media_type="VIDEO", video_url=post["video_url"])
+        url = direct_media_url(post["video_url"])
+        check_media(url, "video")
+        params.update(media_type="VIDEO", video_url=url)
     elif post.get("image_url"):
-        params.update(media_type="IMAGE", image_url=post["image_url"])
+        url = direct_media_url(post["image_url"])
+        check_media(url, "image")
+        params.update(media_type="IMAGE", image_url=url)
     else:
         params["media_type"] = "TEXT"
     if post.get("topic_tag"):
@@ -160,6 +200,15 @@ def main():
             print(f"[{state:11}] {p['id']:<4} {p.get('scheduled_at', '?')}  {p.get('text', '')[:40]!r}")
             for i in issues:
                 print(f"              - {i}")
+            if not issues and p["id"] not in posted:
+                for key, kind in (("video_url", "video"), ("image_url", "image")):
+                    if p.get(key):
+                        try:
+                            check_media(direct_media_url(p[key]), kind)
+                            print(f"              - {key}: link OK ✓")
+                        except Exception as e:
+                            print(f"              - {key}: MASALAH: {e}")
+                            issues.append(str(e))
             if issues and p["id"] not in posted:
                 bad += 1
         print(f"\n{len(posts)} post, {len(posted)} sudah dipost, {bad} belum sedia.")

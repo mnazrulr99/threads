@@ -2,9 +2,9 @@ name: Auto-post Threads
 
 on:
   schedule:
-    # Every 30 min, 08:05–23:35 Malaysia time (00:05–15:35 UTC).
+    # Every 30 min, 07:05–23:35 Malaysia time (23:05–15:35 UTC).
     # GitHub may delay scheduled runs by a few minutes, sometimes more.
-    - cron: "5,35 0-15 * * *"
+    - cron: "5,35 0-15,23 * * *"
   workflow_dispatch:
     inputs:
       mode:

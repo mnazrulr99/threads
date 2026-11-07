@@ -1,7 +1,7 @@
 [
   {
     "id": "p01",
-    "scheduled_at": "2026-11-09T21:00:00+08:00",
+    "scheduled_at": "2026-11-08T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Korang taknak ke ada video yang orang stop scroll? 👀\n\nRM25 je untuk 1 video bawah 1 minit 😍\n✅ Caption\n✅ Transition\n✅ Text & sound effect\n✅ Overlay\n\nHantar raw je, saya settlekan semua 🎬\nKomen \"NAK\" kalau berminat 👇🏻",
     "video_url": "",
@@ -11,7 +11,7 @@
   },
   {
     "id": "p02",
-    "scheduled_at": "2026-11-10T12:30:00+08:00",
+    "scheduled_at": "2026-11-09T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Jujur sikit 😅\nBerapa lama korang ambil masa nak edit SATU video?\n\nA) Bawah 30 minit\nB) 1–2 jam\nC) Sampai tertidur depan CapCut 😭\n\nSaya nak tahu, komen bawah 👇🏻",
     "video_url": "",
@@ -20,17 +20,20 @@
   },
   {
     "id": "p03",
-    "scheduled_at": "2026-11-11T21:00:00+08:00",
+    "scheduled_at": "2026-11-10T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Sikit sample hasil edit saya 🎬✨\n\nNak video korang nampak macam ni juga?\nRM25/vid je 😍\n\nDM saya untuk tengok lebih banyak sample 📩",
-    "video_url": "",
+    "video_url": [
+      "https://drive.google.com/file/d/1yjsuVtg7NDZDRxkSmmpv_jfN_RKgK74Q/view?usp=drivesdk",
+      "https://drive.google.com/file/d/1kBWQZGRCGGfOv1sRDf0te1xT6gPr0tji/view?usp=drivesdk"
+    ],
     "image_url": "",
     "require_media": true,
-    "nota": "Lampirkan 1 sample video (pendek pun cukup)"
+    "nota": "Carousel 2 video"
   },
   {
     "id": "p04",
-    "scheduled_at": "2026-11-12T12:30:00+08:00",
+    "scheduled_at": "2026-11-11T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "3 benda yang buat video affiliate korang kena skip 👇🏻\n\n1. 3 saat pertama tak ada hook\n2. Takde caption (ramai tengok tanpa sound!)\n3. Terlalu panjang, tak potong bahagian \"emm... aaa...\"\n\nSimpan post ni, cuba dalam video seterusnya 🔖\nKalau takde masa nak buat sendiri, saya boleh tolong 😉",
     "video_url": "",
@@ -39,7 +42,7 @@
   },
   {
     "id": "p05",
-    "scheduled_at": "2026-11-13T21:00:00+08:00",
+    "scheduled_at": "2026-11-12T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Seller & affiliate yang nak post konsisten, ni untuk korang 📦\n\n💰 Pakej edit video (bawah 1 minit):\n• 1 video: RM25\n• 3 video: RM70\n• 4 video: RM85\n• 10 video: RM230 🔥\n\nLagi banyak, lagi jimat.\nDM \"PAKEJ\" untuk booking 📩",
     "video_url": "",
@@ -49,7 +52,7 @@
   },
   {
     "id": "p06",
-    "scheduled_at": "2026-11-14T12:30:00+08:00",
+    "scheduled_at": "2026-11-13T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Behind the scenes edit video 🎬\n\nPaling lama bukan bahagian edit,\ntapi cari bahagian paling \"kena\" dalam raw footage yang panjang 😂\n\nTapi bila siap & client puas hati…\npenat terus hilang 🤭✨",
     "video_url": "",
@@ -59,7 +62,7 @@
   },
   {
     "id": "p07",
-    "scheduled_at": "2026-11-15T21:00:00+08:00",
+    "scheduled_at": "2026-11-14T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Terima kasih semua client yang percaya saya edit video korang 🥹🤍\n\nSetiap kali korang cakap \"cantiknya!\",\nitu yang buat saya semangat nak edit lagi.\n\nNak cuba juga? RM25/vid, semua jenis video boleh 🎬",
     "video_url": "",
@@ -69,7 +72,7 @@
   },
   {
     "id": "p08",
-    "scheduled_at": "2026-11-16T12:30:00+08:00",
+    "scheduled_at": "2026-11-15T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Phone penuh raw video, tapi satu pun tak post lagi? 🥲\n\nBukan malas.\nKorang busy packing order, layan customer, live lagi...\n\nBagi saya bahagian edit.\nKorang fokus jual 💸 RM25/vid je.",
     "video_url": "",
@@ -78,7 +81,7 @@
   },
   {
     "id": "p09",
-    "scheduled_at": "2026-11-17T21:00:00+08:00",
+    "scheduled_at": "2026-11-16T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Soalan yang selalu orang tanya saya 👇🏻\n\n❓ Kena hantar apa?\n👉 Raw video + produk apa + gaya yang korang nak\n\n❓ Video apa boleh?\n👉 Affiliate, review, iklan, cute, epic: semua boleh!\n\n❓ Panjang video?\n👉 RM25 untuk video bawah 1 minit\n\n❓ Ada pakej?\n👉 Ada! Lagi banyak video, lagi jimat 💸\n\nSoalan lain? DM je, kita borak terus 💬",
     "video_url": "",
@@ -87,7 +90,7 @@
   },
   {
     "id": "p10",
-    "scheduled_at": "2026-11-18T12:30:00+08:00",
+    "scheduled_at": "2026-11-17T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Tips rakam raw video supaya senang edit 🎥\n\n✔️ Rakam menegak (9:16)\n✔️ Cahaya depan muka, bukan belakang\n✔️ Diam 2 saat sebelum & lepas bercakap\n✔️ Rakam lebih, nanti saya potong 😆\n\nShare dengan kawan yang buat affiliate 🔁",
     "video_url": "",
@@ -96,17 +99,17 @@
   },
   {
     "id": "p11",
-    "scheduled_at": "2026-11-19T21:00:00+08:00",
+    "scheduled_at": "2026-11-18T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Cute, epic, ads… semua boleh 🎬\n\nNi antara sample yang pernah saya edit 👀\nSelebihnya, DM je ya 😉\n\nRM25/vid · Pakej pun ada 🔥",
-    "video_url": "",
+    "video_url": "https://drive.google.com/file/d/1idQ_I_pNpbWxPG1fK9Ai7F50vYd7gtxi/view?usp=drivesdk",
     "image_url": "",
     "require_media": true,
-    "nota": "Lampirkan 1–2 sample video"
+    "nota": "1 sample video"
   },
   {
     "id": "p12",
-    "scheduled_at": "2026-11-20T12:30:00+08:00",
+    "scheduled_at": "2026-11-19T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Korang buat affiliate produk apa sekarang? 👀\n\nSkincare? Makanan? Baju? Gadget?\nKomen bawah, nanti saya kongsi idea hook video untuk niche korang 💡",
     "video_url": "",
@@ -116,7 +119,7 @@
   },
   {
     "id": "p13",
-    "scheduled_at": "2026-11-21T21:00:00+08:00",
+    "scheduled_at": "2026-11-20T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Slot edit minggu depan dah mula dibuka 🗓️\n\nSiapa nak lock video untuk campaign hujung bulan,\nDM awal supaya dapat slot ya 📩\n\nRM25/vid · Pakej 10 video RM230 🔥",
     "video_url": "",
@@ -126,7 +129,7 @@
   },
   {
     "id": "p14",
-    "scheduled_at": "2026-11-22T12:30:00+08:00",
+    "scheduled_at": "2026-11-21T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Minggu ni penuh dengan video client 🥹🎬\n\nDari skincare, makanan sampai baju,\nsetiap video ada cerita sendiri.\n\nTerima kasih yang percaya 🤍\nNext, video korang pula? 😉",
     "video_url": "",
@@ -136,7 +139,7 @@
   },
   {
     "id": "p15",
-    "scheduled_at": "2026-11-23T21:00:00+08:00",
+    "scheduled_at": "2026-11-22T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Korang perasan tak, video yang laku bukan yang paling cantik…\ntapi yang paling cepat buat orang faham produk 💡\n\nItu yang saya fokus bila edit:\n✅ Hook laju\n✅ Caption jelas\n✅ Tunjuk produk awal\n\nRM25/vid je. DM saya 📩",
     "video_url": "",
@@ -145,7 +148,7 @@
   },
   {
     "id": "p16",
-    "scheduled_at": "2026-11-24T12:30:00+08:00",
+    "scheduled_at": "2026-11-23T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Raw video yang korang ada sekarang tu,\nberapa lama dah tersimpan dalam galeri? 😅\n\n1 minggu? 1 bulan? Sejak raya tahun lepas? 🤣\n\nKomen jujur 👇🏻",
     "video_url": "",
@@ -154,7 +157,7 @@
   },
   {
     "id": "p17",
-    "scheduled_at": "2026-11-25T21:00:00+08:00",
+    "scheduled_at": "2026-11-24T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Kenapa ramai seller pilih outsource edit video? 🤔\n\n⏰ Jimat masa: fokus packing & jual\n📅 Konsisten: video siap ikut jadual\n🎬 Nampak pro: tak perlu belajar edit\n\nNak cuba? RM25/vid, bawah 1 minit 😍\nKomen \"NAK\" 👇🏻",
     "video_url": "",
@@ -163,7 +166,7 @@
   },
   {
     "id": "p18",
-    "scheduled_at": "2026-11-26T12:30:00+08:00",
+    "scheduled_at": "2026-11-25T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Hook 3 saat pertama yang korang boleh tiru 👇🏻\n\n\"Jangan beli produk ni sebelum tengok video ni\"\n\"Saya menyesal tak tahu benda ni awal\"\n\"Ni sebab produk ni sold out\"\n\nSimpan 🔖 & cuba dalam video seterusnya!",
     "video_url": "",
@@ -172,7 +175,7 @@
   },
   {
     "id": "p19",
-    "scheduled_at": "2026-11-27T21:00:00+08:00",
+    "scheduled_at": "2026-11-26T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Hujung bulan dah dekat 👀\nCampaign & payday sale pun nak masuk.\n\nVideo dah siap ke belum? 😬\n\nLock pakej sekarang:\n• 3 video: RM70\n• 10 video: RM230 🔥\n\nDM \"PAKEJ\" 📩",
     "video_url": "",
@@ -181,7 +184,7 @@
   },
   {
     "id": "p20",
-    "scheduled_at": "2026-11-28T12:30:00+08:00",
+    "scheduled_at": "2026-11-27T12:30:00+08:00",
     "topic_tag": "Content Creators",
     "text": "Content creator, mana satu korang paling benci buat? 😩\n\n🎥 Rakam\n✂️ Edit\n✍️ Tulis caption\n📊 Tengok views tak naik\n\nSaya undi ✂️… sebab tu saya buat untuk orang lain 😂",
     "video_url": "",
@@ -190,7 +193,7 @@
   },
   {
     "id": "p21",
-    "scheduled_at": "2026-11-29T21:00:00+08:00",
+    "scheduled_at": "2026-11-28T21:00:00+08:00",
     "topic_tag": "edit video",
     "text": "Bulan ni korang dah post berapa video? 🎬\n\nKalau target 10 tapi baru 2…\ntakpe, bagi raw je dekat saya 😉\n\nPakej 10 video RM230 je 🔥\nDM sekarang 📩",
     "video_url": "",

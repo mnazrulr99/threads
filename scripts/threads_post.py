@@ -65,16 +65,16 @@ def problems(post):
     if PLACEHOLDER.search(text):
         out.append("masih ada [placeholder] yang belum diisi: "
                    + ", ".join(sorted(set(PLACEHOLDER.findall(text)))))
-    if post.get("require_media") and not (post.get("video_url") or post.get("image_url")):
+    media = media_list(post)
+    if post.get("require_media") and not media:
         out.append("perlu video/gambar tapi video_url/image_url kosong")
-    if post.get("video_url") and post.get("image_url"):
-        out.append("pilih satu sahaja: video_url atau image_url")
-    for key in ("video_url", "image_url"):
-        if post.get(key):
-            try:
-                direct_media_url(post[key])
-            except ValueError as e:
-                out.append(f"{key}: {e}")
+    if len(media) > 20:
+        out.append("carousel maksimum 20 media")
+    for kind, url in media:
+        try:
+            direct_media_url(url)
+        except ValueError as e:
+            out.append(f"{kind}: {e}")
     try:
         parse_time(post["scheduled_at"])
     except (KeyError, ValueError):
@@ -128,43 +128,67 @@ def check_media(url, kind):
                            "Pastikan fail Drive di-share 'Anyone with the link'.")
 
 
-def publish(post, token, user_id):
-    params = {"text": post["text"], "access_token": token}
-    if post.get("video_url"):
-        url = direct_media_url(post["video_url"])
-        check_media(url, "video")
-        params.update(media_type="VIDEO", video_url=url)
-    elif post.get("image_url"):
-        url = direct_media_url(post["image_url"])
-        check_media(url, "image")
-        params.update(media_type="IMAGE", image_url=url)
-    else:
-        params["media_type"] = "TEXT"
-    if post.get("topic_tag"):
-        params["topic_tag"] = post["topic_tag"]
+def media_list(post):
+    """Return [(kind, url), ...]. video_url may be one link or a list (carousel)."""
+    items = []
+    for key, kind in (("video_url", "video"), ("image_url", "image")):
+        val = post.get(key) or []
+        for url in ([val] if isinstance(val, str) else val):
+            if url:
+                items.append((kind, url))
+    return items
 
+
+def wait_ready(cid, token):
+    for _ in range(30):
+        st = api_call("GET", cid, {"fields": "status,error_message", "access_token": token})
+        if st.get("status") == "FINISHED":
+            return
+        if st.get("status") in ("ERROR", "EXPIRED"):
+            raise RuntimeError(f"Media gagal diproses: {st}")
+        time.sleep(10)
+    raise RuntimeError("Media ambil masa terlalu lama untuk diproses")
+
+
+def create_container(user_id, params):
     try:
-        container = api_call("POST", f"{user_id}/threads", params)
+        return api_call("POST", f"{user_id}/threads", params)["id"]
     except RuntimeError as e:
         if "topic_tag" not in params:
             raise
         print(f"  ! Gagal dengan topic_tag, cuba semula tanpa topic: {e}")
-        params.pop("topic_tag")
-        container = api_call("POST", f"{user_id}/threads", params)
-    cid = container["id"]
+        params = {k: v for k, v in params.items() if k != "topic_tag"}
+        return api_call("POST", f"{user_id}/threads", params)["id"]
 
-    # Media needs processing before it can be published.
-    if params["media_type"] != "TEXT":
-        for _ in range(30):
-            st = api_call("GET", cid, {"fields": "status,error_message", "access_token": token})
-            if st.get("status") == "FINISHED":
-                break
-            if st.get("status") in ("ERROR", "EXPIRED"):
-                raise RuntimeError(f"Media gagal diproses: {st}")
-            time.sleep(10)
-        else:
-            raise RuntimeError("Media ambil masa terlalu lama untuk diproses")
+
+def publish(post, token, user_id):
+    media = [(kind, direct_media_url(url)) for kind, url in media_list(post)]
+    for kind, url in media:
+        check_media(url, kind)
+
+    params = {"text": post["text"], "access_token": token}
+    if post.get("topic_tag"):
+        params["topic_tag"] = post["topic_tag"]
+
+    if len(media) == 1:
+        kind, url = media[0]
+        params.update(media_type=kind.upper(), **{f"{kind}_url": url})
+        cid = create_container(user_id, params)
+        wait_ready(cid, token)
+    elif len(media) > 1:  # carousel: each item first, then the parent
+        children = []
+        for kind, url in media:
+            child = api_call("POST", f"{user_id}/threads", {
+                "media_type": kind.upper(), f"{kind}_url": url,
+                "is_carousel_item": "true", "access_token": token})["id"]
+            wait_ready(child, token)
+            children.append(child)
+        params.update(media_type="CAROUSEL", children=",".join(children))
+        cid = create_container(user_id, params)
+        wait_ready(cid, token)
     else:
+        params["media_type"] = "TEXT"
+        cid = create_container(user_id, params)
         time.sleep(3)
 
     result = api_call("POST", f"{user_id}/threads_publish",
@@ -201,14 +225,13 @@ def main():
             for i in issues:
                 print(f"              - {i}")
             if not issues and p["id"] not in posted:
-                for key, kind in (("video_url", "video"), ("image_url", "image")):
-                    if p.get(key):
-                        try:
-                            check_media(direct_media_url(p[key]), kind)
-                            print(f"              - {key}: link OK ✓")
-                        except Exception as e:
-                            print(f"              - {key}: MASALAH: {e}")
-                            issues.append(str(e))
+                for kind, url in media_list(p):
+                    try:
+                        check_media(direct_media_url(url), kind)
+                        print(f"              - {kind}: link OK ✓")
+                    except Exception as e:
+                        print(f"              - {kind}: MASALAH: {e}")
+                        issues.append(str(e))
             if issues and p["id"] not in posted:
                 bad += 1
         print(f"\n{len(posts)} post, {len(posted)} sudah dipost, {bad} belum sedia.")

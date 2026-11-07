@@ -66,7 +66,7 @@ Token Threads biasanya tamat dalam **60 hari**. Untuk refresh automatik:
 Kalau kau skip langkah ni, kau kena ulang Langkah 3 dan 4 setiap kira-kira 50 hari.
 
 ### Langkah 6: Test
-1. Pergi ke tab **Actions → Auto-post Threads → Run workflow**, tandakan **Dry run**, dan tekan Run. Ini cuma tunjuk apa yang akan dipost, tak post betul-betul.
+1. Pergi ke tab **Actions → Auto-post Threads → Run workflow**, pilih mod **test_token**, dan tekan Run. Ini cuma semak token, tak post apa-apa.
 2. Untuk test betul-betul, tambah satu post dalam `posts.json` dengan masa 5 minit dari sekarang, kemudian **Run workflow** tanpa Dry run.
 
 ---

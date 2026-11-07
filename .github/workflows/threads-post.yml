@@ -7,10 +7,14 @@ on:
     - cron: "5,35 0-15 * * *"
   workflow_dispatch:
     inputs:
-      dry_run:
-        description: "Dry run (tak post betul-betul)"
-        type: boolean
-        default: false
+      mode:
+        description: "Pilih mod"
+        type: choice
+        default: post
+        options:
+          - post
+          - test_token
+          - dry_run
 
 permissions:
   contents: write
@@ -30,11 +34,11 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
         run: |
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python3 scripts/threads_post.py --dry-run
-          else
-            python3 scripts/threads_post.py
-          fi
+          case "${{ inputs.mode }}" in
+            test_token) python3 scripts/threads_post.py --whoami ;;
+            dry_run)    python3 scripts/threads_post.py --dry-run ;;
+            *)          python3 scripts/threads_post.py ;;
+          esac
 
       - name: Simpan rekod post (posted.json)
         if: always()

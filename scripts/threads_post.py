@@ -206,7 +206,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="validate all posts and exit")
     ap.add_argument("--dry-run", action="store_true", help="do not post, just show")
+    ap.add_argument("--whoami", action="store_true", help="test the token without posting")
     args = ap.parse_args()
+
+    if args.whoami:
+        token = os.environ.get("THREADS_ACCESS_TOKEN", "").strip()
+        if not token:
+            sys.exit("ERROR: THREADS_ACCESS_TOKEN belum diset dalam GitHub Secrets")
+        user_id = os.environ.get("THREADS_USER_ID", "").strip() or "me"
+        me = api_call("GET", user_id, {"fields": "id,username", "access_token": token})
+        print(f"✓ Token OK! Bersambung ke akaun Threads @{me.get('username')} (id {me.get('id')})")
+        return
 
     posts = load_json(POSTS_FILE, [])
     posted = load_json(POSTED_FILE, {})

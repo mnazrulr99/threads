@@ -1,0 +1,48 @@
+name: Auto-post Threads
+
+on:
+  schedule:
+    # Every 30 min, 08:05–23:35 Malaysia time (00:05–15:35 UTC).
+    # GitHub may delay scheduled runs by a few minutes, sometimes more.
+    - cron: "5,35 0-15 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (tak post betul-betul)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: threads-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Post yang dah sampai masa
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python3 scripts/threads_post.py --dry-run
+          else
+            python3 scripts/threads_post.py
+          fi
+
+      - name: Simpan rekod post (posted.json)
+        if: always()
+        run: |
+          if git diff --quiet -- content/posted.json; then exit 0; fi
+          git config user.name "threads-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/posted.json
+          git commit -m "Rekod post Threads [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

@@ -1,0 +1,37 @@
+name: Refresh token Threads
+
+# Threads long-lived tokens last 60 days. This refreshes it on the 1st and
+# 15th of each month and saves the new token back into the repo secret.
+# Needs a secret GH_PAT: fine-grained token for this repo with
+# "Secrets: Read and write" permission.
+
+on:
+  schedule:
+    - cron: "17 2 1,15 * *"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refresh dan simpan token baru
+        env:
+          OLD_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Secret GH_PAT belum diset. Tanpa ia, token tak boleh disimpan semula."
+            exit 1
+          fi
+          resp=$(curl -sS -G "https://graph.threads.net/refresh_access_token" \
+            --data-urlencode "grant_type=th_refresh_token" \
+            --data-urlencode "access_token=$OLD_TOKEN")
+          new=$(printf '%s' "$resp" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("access_token",""))')
+          if [ -z "$new" ]; then
+            echo "::error::Refresh gagal. Mungkin token dah tamat; jana token baru di Meta Developer."
+            printf '%s' "$resp" | python3 -c 'import json,sys; d=json.load(sys.stdin); d.pop("access_token",None); print(d)'
+            exit 1
+          fi
+          echo "::add-mask::$new"
+          gh secret set THREADS_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body "$new"
+          echo "Token berjaya direfresh."

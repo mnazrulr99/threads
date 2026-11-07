@@ -1,0 +1,13 @@
+name: Semak posts.json
+
+on:
+  push:
+    paths: ["content/posts.json", "scripts/threads_post.py"]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/threads_post.py --check

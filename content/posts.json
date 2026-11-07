@@ -51,21 +51,21 @@
     "id": "p06",
     "scheduled_at": "2026-11-14T12:30:00+08:00",
     "topic_tag": "Content Creators",
-    "text": "Hari ni edit [X] video untuk client jual [produk] 🎬\n\nPaling lama bukan edit,\ntapi cari bahagian paling \"kena\" dalam 5 minit raw footage 😂\n\nTapi bila siap, puas hati gila 🤭✨",
+    "text": "Behind the scenes edit video 🎬\n\nPaling lama bukan bahagian edit,\ntapi cari bahagian paling \"kena\" dalam raw footage yang panjang 😂\n\nTapi bila siap & client puas hati…\npenat terus hilang 🤭✨",
     "video_url": "",
     "image_url": "",
-    "require_media": true,
-    "nota": "Perlu screen record proses edit"
+    "require_media": false,
+    "nota": "Boleh post teks je; lagi bagus kalau ada video"
   },
   {
     "id": "p07",
     "scheduled_at": "2026-11-15T21:00:00+08:00",
     "topic_tag": "edit video",
-    "text": "Terima kasih [nama client] sebab percaya saya edit video [produk] dia 🥹🤍\n\n[feedback sebenar client]\n\nNak cuba juga? RM25/vid, semua jenis video boleh 🎬",
+    "text": "Terima kasih semua client yang percaya saya edit video korang 🥹🤍\n\nSetiap kali korang cakap \"cantiknya!\",\nitu yang buat saya semangat nak edit lagi.\n\nNak cuba juga? RM25/vid, semua jenis video boleh 🎬",
     "video_url": "",
     "image_url": "",
-    "require_media": true,
-    "nota": "Guna nama & feedback client SEBENAR, dengan izin"
+    "require_media": false,
+    "nota": "Boleh post teks je; lagi bagus kalau ada video"
   },
   {
     "id": "p08",
@@ -118,21 +118,21 @@
     "id": "p13",
     "scheduled_at": "2026-11-21T21:00:00+08:00",
     "topic_tag": "edit video",
-    "text": "Slot minggu depan tinggal [X] je 🗓️\n\nSiapa nak lock video untuk campaign hujung bulan,\nDM sekarang sebelum penuh ya 📩\n\nRM25/vid · Pakej 10 video RM230 🔥",
+    "text": "Slot edit minggu depan dah mula dibuka 🗓️\n\nSiapa nak lock video untuk campaign hujung bulan,\nDM awal supaya dapat slot ya 📩\n\nRM25/vid · Pakej 10 video RM230 🔥",
     "video_url": "",
     "image_url": "",
     "require_media": false,
-    "nota": "Guna hanya kalau slot memang terhad"
+    "nota": "Boleh post teks je; lagi bagus kalau ada video"
   },
   {
     "id": "p14",
     "scheduled_at": "2026-11-22T12:30:00+08:00",
     "topic_tag": "Content Creators",
-    "text": "Minggu ni saya dah edit [X] video untuk [X] client 🥹🎬\n\nDari skincare, makanan sampai baju raya,\nsemua ada cerita sendiri.\n\nTerima kasih yang percaya 🤍\nNext, video korang pula? 😉",
+    "text": "Minggu ni penuh dengan video client 🥹🎬\n\nDari skincare, makanan sampai baju,\nsetiap video ada cerita sendiri.\n\nTerima kasih yang percaya 🤍\nNext, video korang pula? 😉",
     "video_url": "",
     "image_url": "",
-    "require_media": true,
-    "nota": "Perlu montaj video minggu ni"
+    "require_media": false,
+    "nota": "Boleh post teks je; lagi bagus kalau ada video"
   },
   {
     "id": "p15",

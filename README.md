@@ -107,3 +107,23 @@ Threads API tak terima fail dari phone. Server Meta akan **download sendiri** vi
 
 ⚠️ **Link folder tak boleh guna.** Mesti link setiap fail video.
 ⚠️ Kalau Google sekat download (contohnya video terlalu banyak kali didownload), post tu akan gagal dan direkod dalam log Actions. Kalau jadi, post sendiri dari app Threads.
+
+---
+
+## Insights (data prestasi)
+
+Workflow **"Kumpul insights Threads"** jalan setiap hari pukul **11:47 malam** dan simpan:
+
+| Fail | Isi |
+|---|---|
+| `content/insights/RINGKASAN.md` | Jadual mudah baca: followers + views/likes/replies/reposts/shares setiap post |
+| `content/insights/latest.json` | Data penuh terkini |
+| `content/insights/history.csv` | Rekod harian (untuk tengok trend) |
+
+Token perlu ada permission **`threads_manage_insights`**:
+1. Meta Developer → **Use cases → Customize → Permissions and features** → tekan **+ Add** pada `threads_manage_insights`.
+2. **Settings → User Token Generator → Generate Access Token** (jana token baru).
+3. GitHub → **Settings → Secrets and variables → Actions** → ✏️ pada `THREADS_ACCESS_TOKEN` → paste token baru → **Update secret**.
+4. **Actions → Kumpul insights Threads → Run workflow** untuk test.
+
+⚠️ Repo ni public, jadi data insights pun boleh dilihat orang lain. Tukar repo jadi private kalau tak nak.

@@ -1,0 +1,39 @@
+name: Kumpul insights Threads
+
+on:
+  schedule:
+    - cron: "47 15 * * *"   # 11:47 malam waktu Malaysia, setiap hari
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: threads-insights
+  cancel-in-progress: false
+
+jobs:
+  insights:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Ambil insights
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+        run: python3 scripts/threads_insights.py
+
+      - name: Simpan data
+        if: always()
+        run: |
+          git add content/insights || true
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "threads-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Insights Threads $(TZ=Asia/Kuala_Lumpur date +%F) [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep 5
+          done
+          exit 1

@@ -1,8 +1,10 @@
 name: Kumpul insights Threads
 
+# Jadual harian dimatikan buat sementara (token belum ada threads_manage_insights).
+# Untuk hidupkan: buang tanda # pada dua baris schedule/cron di bawah.
 on:
-  schedule:
-    - cron: "47 15 * * *"   # 11:47 malam waktu Malaysia, setiap hari
+  # schedule:
+  #   - cron: "47 15 * * *"   # 11:47 malam waktu Malaysia, setiap hari
   workflow_dispatch:
 
 permissions:

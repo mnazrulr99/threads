@@ -112,7 +112,9 @@ Threads API tak terima fail dari phone. Server Meta akan **download sendiri** vi
 
 ## Insights (data prestasi)
 
-Workflow **"Kumpul insights Threads"** jalan setiap hari pukul **11:47 malam** dan simpan:
+> ⏸️ **Belum diaktifkan.** Jadual harian dimatikan sehingga token ada permission insights. Selepas setup di bawah, buang tanda `#` pada baris `schedule` dan `cron` dalam `.github/workflows/threads-insights.yml`.
+
+Bila aktif, workflow **"Kumpul insights Threads"** jalan setiap hari pukul **11:47 malam** dan simpan:
 
 | Fail | Isi |
 |---|---|

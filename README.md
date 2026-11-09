@@ -16,14 +16,14 @@ Tak perlu install apa-apa. Semua setup boleh dibuat dari **browser phone** (Chro
 
 ## Cara ia berfungsi
 
-1. GitHub Actions jalan **setiap 30 minit**, dari 7:05 pagi hingga 11:35 malam waktu Malaysia.
+1. GitHub Actions jalan **setiap 10 minit**, dari 7:03 pagi hingga 11:35 malam waktu Malaysia.
 2. Skrip semak `posts.json`. Mana-mana post yang **dah sampai masa** dan **belum dipost** akan dihantar ke Threads.
 3. Post **tak akan dihantar** kalau:
    - masih ada `[placeholder]` macam `[X]` yang belum diisi
    - `require_media: true` tapi `video_url` masih kosong
    - lebih 500 aksara
    - lewat lebih 6 jam daripada jadual (supaya post lama tak keluar serentak)
-4. Masa post mungkin lewat **5 hingga 30 minit** dari jadual, sebab jadual GitHub kadang-kadang tertangguh.
+4. Masa post mungkin lewat **10 hingga 60 minit** dari jadual, sebab GitHub kadang-kadang tangguh atau langkau giliran.
 
 ---
 

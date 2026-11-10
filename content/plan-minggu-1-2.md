@@ -29,7 +29,7 @@ Tempoh: **Ahad 8 Nov hingga Sabtu 21 Nov 2026** (14 post, 1 post sehari)
 4. Uji dua topic secara bergilir ("edit video" dan "Content Creators"), lepas tu tengok mana lebih baik.
 5. Jangan reka testimoni. Guna nama/feedback client sebenar sahaja, dengan izin mereka.
 
-**Harga rujukan (dari post 07/20):** 1 video RM25 · 3 video RM70 · 4 video RM85 · 10 video RM230 (bawah 1 minit)
+**Harga rujukan (dari post 07/20):** 1 video RM25 · 3 video RM70 · 5 video RM115 · 10 video RM230 (bawah 1 minit)
 
 **Waktu cadangan (MYT):** selang-seli **12:30 tengah hari** dan **9:00 malam**. Ini titik mula untuk diuji, bukan data terbukti. Selepas 2 minggu, bandingkan waktu mana lebih banyak engagement.
 
@@ -99,8 +99,8 @@ Seller & affiliate yang nak post konsisten, ni untuk korang 📦
 💰 Pakej edit video (bawah 1 minit):
 • 1 video: RM25
 • 3 video: RM70
-• 4 video: RM85
-• 10 video: RM230 🔥
+• 5 video: RM115
+• 10 video: RM230
 
 Lagi banyak, lagi jimat.
 DM "PAKEJ" untuk booking 📩

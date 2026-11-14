@@ -62,7 +62,7 @@
   },
   {
     "id": "p07",
-    "scheduled_at": "2026-11-14T21:00:00+08:00",
+    "scheduled_at": "2026-11-29T12:30:00+08:00",
     "topic_tag": "edit video",
     "text": "Terima kasih semua client yang percaya saya edit video korang 🥹🤍\n\nSetiap kali korang cakap \"cantiknya!\",\nitu yang buat saya semangat nak edit lagi.\n\nNak cuba juga? RM25/vid, semua jenis video boleh 🎬",
     "video_url": "",
@@ -208,5 +208,15 @@
     "image_url": "",
     "require_media": false,
     "nota": "Post pagi tambahan"
+  },
+  {
+    "id": "p23",
+    "scheduled_at": "2026-11-14T12:00:00+08:00",
+    "topic_tag": "Content Creators",
+    "text": "Bila client cakap \"Perfect!!\" 🥹🤍\n\nFirst time akak ni buat video travel,\ndan saya yang tolong editkan ✈️🎬\n\nVideo travel, produk, review… semua boleh.\nRM25/vid · Boleh DM saya 📩",
+    "video_url": "",
+    "image_url": "https://drive.google.com/file/d/1DTi7xkTT2lRNVDYJsCgfvLyaOqncHM3T/view?usp=drivesdk",
+    "require_media": true,
+    "nota": "Screenshot testimoni client"
   }
 ]
